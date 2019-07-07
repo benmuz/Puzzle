@@ -195,9 +195,9 @@ public class PuzzlePieces extends Application {
         private final boolean hasRightTab;
         private double startDragX;
         private double startDragY;
-        private Shape pieceStroke;
-        private Shape pieceClip;
-        private ImageView imageView = new ImageView();
+        private final Shape pieceStroke;
+        private final Shape pieceClip;
+        private final ImageView imageView = new ImageView();
         private Point2D dragAnchor;
 
         public Piece(Image image, final double correctX, final double correctY,
@@ -246,6 +246,7 @@ public class PuzzlePieces extends Application {
                 }
             });
             setOnMouseDragged(new EventHandler<MouseEvent>() {
+                @Override
                 public void handle(MouseEvent me) {
                     double newTranslateX = startDragX
                                             + me.getSceneX() - dragAnchor.getX();
